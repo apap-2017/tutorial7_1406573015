@@ -1,0 +1,43 @@
+Yang dipelajari dalam tutorial ini
+- Penggunaan REST dan manfaat dari REST
+- Penggunaan REST Controller
+- Menggunakan port selain 8080
+- 
+- 
+
+
+Latihan 1
+	Latihan ini membantu memahami penggunaan rest untuk mengirimkan data JSON
+method yang dibuat pada latihan ini adalah
+
+	@RequestMapping("/student/viewall")
+	public List<StudentModel> viewall(){
+		List<StudentModel> students = studentService.selectAllStudents ();
+		return students;
+	}
+yang terdapat pada rest student controller
+method ini mengambil semua student dan mengembalikanya dalam bentuk list
+
+Latihan 2
+	
+	Latihan ini juga membantu memahami penggunaan rest untuk mengirimkan data JSON
+method yang dibuat pada latihan ini adalah
+
+@RequestMapping("/course/view/{id_course}")
+	public CourseModel view(@PathVariable(value = "id_course") String id_course)
+    {
+        CourseModel course = studentService.selectCourse(id_course);
+		return course;
+	}
+	
+	@RequestMapping("/course/viewall")
+	public List<CourseModel> viewall(){
+		List<CourseModel> courses = studentService.selectAllCourse ();
+		return courses;
+	}
+ang terdapat pada rest coursecontroller
+method view mengambil course sesuai dengan id course dan mengembalikanya dalam bentuk course model
+method viewall mengambil semua course dan mengembalikanya dalam bentuk list
+
+
+
