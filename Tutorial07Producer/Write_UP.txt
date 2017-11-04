@@ -1,0 +1,12 @@
+1. method yang dirubah adalah selectallstudent pada student mapper. Selectall menjadi
+
+"@Select("select npm, name, gpa from student")
+	@Results(value = { @Result(property = "npm", column = "npm"), @Result(property = "name", column = "name"),
+			@Result(property = "gpa", column = "gpa"),
+			@Result(property = "courses", column = "npm", javaType = List.class, many = @Many(select = "selectCourses")) })
+    List<StudentModel> selectAllStudents ();"
+
+Cara yang digunakan sama seperti yang ada di tutorial ini. hanya saja di method ini tidak menggunakan where clause
+
+2. Untuk membuat view course saya membuat Course mapper. Sama halnya dengan method yang ada pada selectstudent pada kelas mapper  hanya saja cara yang digunakan dibalik dimana pada method yang dibuat 
+menjadi selectcourse dengan parameter id_course setelah itu membuat method select student di course mapper yang digunakan untuk mengambil student yang sedang mengambil course tertentu . 
